@@ -23,7 +23,7 @@ Was:
 - Möchte ich eine Aufgabe als erledigt abstempeln können,
 
 Warum:
-- damit ich den Überblick darüber behalte, was ich bereits getan habe.
+- Damit ich den Überblick darüber behalte, was ich bereits getan habe.
 
 | Akzeptanzkriterien |
 | :--- |
