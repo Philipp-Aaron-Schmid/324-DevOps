@@ -90,8 +90,8 @@
 
 ## Unit tests
 
-**Wer:** Entwickler
-**Was:** Unit tests für Datenverarbeitungskomponenten schreiben
+**Wer:** Entwickler  
+**Was:** Unit tests für Datenverarbeitungskomponenten schreiben  
 **Warum:** Um die korrekte verarbeitung von Daten zu gewährleisten  
 
 | Akzeptanzkriterien |  
@@ -101,8 +101,8 @@
 | 3. Alle Tests werden automatisch bei jedem Build ausgeführt. |
 | 4. Alle Tests müssen am ende Erfolgreich sein. |
 
-**Wer:** Entwickler
-**Was:** Unit tests für API-Endpunkte schreiben
+**Wer:** Entwickler  
+**Was:** Unit tests für API-Endpunkte schreiben  
 **Warum:** Um die funktionalität der API zu gewährleisten  
 
 | Akzeptanzkriterien |  
@@ -128,7 +128,7 @@
 ## Edit
 
 **Wer:** Als Benutzer  
-**Was:** Möchte ich die Details einer To-Do-Aufgabe bearbeiten können
+**Was:** Möchte ich die Details einer To-Do-Aufgabe bearbeiten können  
 **Warum:** Damit ich Änderungen oder Korrekturen vornehmen kann.
 
 | Akzeptanzkriterien |
