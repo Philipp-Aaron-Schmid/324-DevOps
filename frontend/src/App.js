@@ -142,9 +142,13 @@ class App extends React.Component {
     return (
       <ul>
         {todos.map((todo, index) => (
-          <li key={todo.taskdescription}>
-            {"Task " + (index+1) + ": "+ todo.taskdescription}
+          <li key={todo.taskdescription} className='TaskItem'>
+            <span>{"Task " + (index+1) + ": "+ todo.taskdescription}</span>
+            <div class='buttons'>
+            <button onClick={this.handleClick.bind(this, todo.taskdescription)}>Edit</button>
             <button onClick={this.handleClick.bind(this, todo.taskdescription)}>Done</button>
+            <button onClick={this.handleClick.bind(this, todo.taskdescription) }>Delete</button>
+            </div>
           </li>
         ))}
       </ul>
@@ -158,7 +162,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <div>
+            <img onContextMenu={(e) => e.preventDefault()} src={logo} className="App-logo" alt="logo" />
+          </div>
+          <div className='Task'>
           <h1>
             ToDo Liste
           </h1>
@@ -170,9 +177,9 @@ class App extends React.Component {
             />
             <button type="submit">Absenden</button>
           </form>
-          <div>
+          <div className='Tasks'>
             {this.renderTasks(this.state.todos)}
-          </div>
+          </div></div>
         </header>
       </div>
     );
