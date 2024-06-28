@@ -1,0 +1,12 @@
+BDD Erweitert TDD indem es sich auf die Perspektive des Benutzers fokusiert. Es geht darum, das die Software, die gewünchsten Anforderungen und Benutzerbedürfnisse erfüllt.
+Bei BDD Tests geht es um das zusammenarbeiten von Entwicklern, Testern und Fachexperten um den Anforderungen zu entsprechen. Darum sind die Tests auch in einer einfach, auch von nicht Technickern, verständlichen Sprache geschrieben.
+Beispiel ist der Gherkin Syntax: zb. Given-When-Then.
+BDD-Tests richten sich sowohl an Entwickler als auch an Geschäftsanalysten und Fachexperten, um sicherzustellen, dass die Software den geschäftlichen Anforderungen entspricht.
+
+Zusammengefasst sind die Unterschiede also:
+- Bei TDD geht es um das Testen der Technischen Aspekte
+- Bei BDD geht es darum sich auf das beabsichtige Verhalten aus der Sicht des Benutzers und des Geschäfts zu konzentrieren
+- BDD hat eine breitere Zielgruppe und muss so auch allg. verständlicher sein
+- Bei BDD ist die zusammenarbeit von verschieden Rollen sehr wichtig während TDD mehr auf Entwickler bezogen ist.
+
+Schlussendlich kann BDD als eine Erweiterung von TDD verwendet werden und ist wichtig im Bereich der DevOps.
