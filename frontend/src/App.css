@@ -11,14 +11,65 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction:row;
+  align-items: left;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Tasks{
+  text-align: left;
+}
+.TaskItem{
+  margin-top: 2vh;
+  margin-right: 2vh;
+  padding: 1vh;
+  background-color: rgb(66, 66, 66);
+  list-style-type: none;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between text and buttons */
+  align-items: center; /* Center items vertically */
+  padding: 8px; /* Optional: Add some padding */
+  border-radius: 8px;
+}
+.Task{
+  text-align: left;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+.TaskItem span {
+  flex-grow: 1; /* Make the text span take up available space */
+  max-width: 70%; /* Limit the span to 70% of the browser window */
+  word-wrap: break-word; /* Wrap long words to the next line */
+  word-break: break-word; /* Ensure text breaks if needed */
+  overflow-wrap: break-word; /* Additional compatibility */
+}
+
+.buttons {
+  display: flex; /* Use flexbox for buttons container */
+  padding-right: 1vh;
+}
+
+.buttons button {
+  background-color: blue; /* Blue background color */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+  padding: 8px 16px; /* Add padding */
+  margin-left: 8px; /* Add some space between buttons */
+  cursor: pointer; /* Change cursor to pointer */
+  border-radius: 4px; /* Optional: Add rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.buttons button:hover {
+  background-color: darkblue; /* Darken background color on hover */
 }
 
