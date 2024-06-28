@@ -110,7 +110,7 @@ public class DemoApplication {
         }
         return "redirect:/";
     }
-	    private void saveTasks() {
+	private void saveTasks() {
         try {
             mapper.writeValue(new File(filePath), tasks);
         } catch (IOException e) {
