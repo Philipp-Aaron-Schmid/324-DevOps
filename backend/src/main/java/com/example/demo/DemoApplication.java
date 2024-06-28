@@ -1,5 +1,9 @@
 package com.example.demo;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
 
 /**
  * This is a demo application that provides a RESTful API for a simple ToDo list
@@ -39,6 +44,12 @@ public class DemoApplication {
 	}
 
 	private List<Task> tasks = new ArrayList<>();
+	private final ObjectMapper mapper = new ObjectMapper();
+    private final String filePath = "tasks.json";
+
+	public DemoApplication() {
+        loadTasks();
+    }
 
 	@CrossOrigin
 	@GetMapping("/")
@@ -70,34 +81,51 @@ public class DemoApplication {
 			}
 			System.out.println("...adding task: '" + task.getTaskdescription() + "'");
 			tasks.add(task);
+			saveTasks();
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
 		return "redirect:/";
 	}
 
-	@CrossOrigin
-	@PostMapping("/delete")
-	public String delTask(@RequestBody String taskdescription) {
-		System.out.println("API EP '/delete': '" + taskdescription + "'");
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			Task task;
-			task = mapper.readValue(taskdescription, Task.class);
-			Iterator<Task> it = tasks.iterator();
-			while (it.hasNext()) {
-				Task t = it.next();
-				if (t.getTaskdescription().equals(task.getTaskdescription())) {
-					System.out.println("...deleting task: '" + task.getTaskdescription() + "'");
-					it.remove();
-					return "redirect:/";
-				}
-			}
-			System.out.println(">>>task: '" + task.getTaskdescription() + "' not found!");
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-		return "redirect:/";
-	}
+    @CrossOrigin
+    @PostMapping("/delete")
+    public String delTask(@RequestBody String taskdescription) {
+        System.out.println("API EP '/delete': '" + taskdescription + "'");
+        try {
+            Task task = mapper.readValue(taskdescription, Task.class);
+            Iterator<Task> it = tasks.iterator();
+            while (it.hasNext()) {
+                Task t = it.next();
+                if (t.getTaskdescription().equals(task.getTaskdescription())) {
+                    System.out.println("...deleting task: '" + task.getTaskdescription() + "'");
+                    it.remove();
+                    saveTasks();
+                    return "redirect:/";
+                }
+            }
+            System.out.println(">>>task: '" + task.getTaskdescription() + "' not found!");
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/";
+    }
+	private void saveTasks() {
+        try {
+            mapper.writeValue(new File(filePath), tasks);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void loadTasks() {
+        try {
+            if (Files.exists(Paths.get(filePath))) {
+                CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Task.class);
+                tasks = mapper.readValue(new File(filePath), listType);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
