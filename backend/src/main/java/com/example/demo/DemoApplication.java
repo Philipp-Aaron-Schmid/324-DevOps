@@ -119,7 +119,7 @@ public class DemoApplication {
     }
 
     void loadTasks() {
-        try {
+		try {
             if (Files.exists(Paths.get(filePath))) {
                 CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Task.class);
                 tasks = mapper.readValue(new File(filePath), listType);
@@ -127,5 +127,6 @@ public class DemoApplication {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -63,11 +64,13 @@ class DemoApplicationTests {
         app.addTask(newTaskJson);
         app.saveTasks(); // Ensure tasks are saved to file
 
+        DemoApplication app2 = new DemoApplication();
+
         // Act
-        app.loadTasks();
+        app2.loadTasks();
 
         // Assert
-        assertFalse(app.getTasks().isEmpty());
+        assertFalse(app2.getTasks().isEmpty());
     }
 
     // File exists but is empty
@@ -90,6 +93,17 @@ class DemoApplicationTests {
 
         // Assert
         assertTrue(app.getTasks().isEmpty());
+    }
+    @Test
+    public void test_saves_non_empty_list_of_tasks_to_file() {
+        DemoApplication app = new DemoApplication();
+        String newTaskJson = "{\"taskdescription\":\"New Task\"}";
+        app.addTask(newTaskJson);
+    
+        app.saveTasks();
+    
+        File file = new File(app.filePath);
+        assertTrue(file.exists() && file.length() > 3);
     }
 }
 
