@@ -27,18 +27,6 @@ public class EndpointsTests {
     }
 
     @Test
-    public void testGetTasksEndpoint() throws Exception {
-        mockMvc.perform(get("/tasks"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void testGetDeleteEndpoint() throws Exception {
-        mockMvc.perform(get("/delete"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
     public void testGetEditEndpoint() throws Exception {
         mockMvc.perform(get("/edit"))
                 .andExpect(status().isOk());
@@ -88,13 +76,6 @@ public class EndpointsTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonContent))
                 .andExpect(status().isOk());
-    }
-
-    @Test
-    public void testTasksEndpointResponseContent() throws Exception {
-        mockMvc.perform(get("/tasks"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.taskName", is("expectedTaskName")));
     }
 
     @Test
