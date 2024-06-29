@@ -45,7 +45,7 @@ public class DemoApplication {
 
 	private List<Task> tasks = new ArrayList<>();
 	private final ObjectMapper mapper = new ObjectMapper();
-    private final String filePath = "tasks.json";
+    final String filePath = "tasks.json";
 
 	public DemoApplication() {
         loadTasks();
@@ -110,7 +110,7 @@ public class DemoApplication {
         }
         return "redirect:/";
     }
-	private void saveTasks() {
+	void saveTasks() {
         try {
             mapper.writeValue(new File(filePath), tasks);
         } catch (IOException e) {
@@ -118,8 +118,8 @@ public class DemoApplication {
         }
     }
 
-    private void loadTasks() {
-        try {
+    void loadTasks() {
+		try {
             if (Files.exists(Paths.get(filePath))) {
                 CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Task.class);
                 tasks = mapper.readValue(new File(filePath), listType);
@@ -127,5 +127,6 @@ public class DemoApplication {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
