@@ -29,7 +29,7 @@ public class EndpointsTests {
     @Test
     public void testGetTasksEndpoint() throws Exception {
         mockMvc.perform(get("/tasks"))
-                .andExpect(status().isOk())
+                .andExpect(status().isOk());
     }
 
     @Test
