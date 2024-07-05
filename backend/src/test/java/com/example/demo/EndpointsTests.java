@@ -28,7 +28,11 @@ public class EndpointsTests {
 
     @Test
     public void testGetEditEndpoint() throws Exception {
-        mockMvc.perform(get("/edit"))
+        String jsonContent = "{ \"taskName\": \"New Task\" }";
+
+        mockMvc.perform(get("/edit")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonContent))
                 .andExpect(status().isOk());
     }
 
