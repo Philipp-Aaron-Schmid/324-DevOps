@@ -54,15 +54,13 @@ class DemoApplicationTests {
         assertEquals(initialSize, app.getTasks().size());
     }
 
-
-    // Loads tasks from an existing file successfully
     @Test
     public void test_loads_tasks_from_existing_file_successfully() {
         // Setup
         DemoApplication app = new DemoApplication();
         String newTaskJson = "{\"taskdescription\":\"New Task\"}";
         app.addTask(newTaskJson);
-        app.saveTasks(); // Ensure tasks are saved to file
+        app.saveTasks();
 
         DemoApplication app2 = new DemoApplication();
 
@@ -78,7 +76,7 @@ class DemoApplicationTests {
     public void test_file_exists_but_is_empty() {
         // Setup
         DemoApplication app = new DemoApplication();
-        app.saveTasks(); // Ensure tasks are saved to file
+        app.saveTasks();
 
         // Clear the file content to simulate an empty file
         try {
