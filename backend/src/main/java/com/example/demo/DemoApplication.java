@@ -41,7 +41,7 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("DemoApplication is running"); // For the Issue 20-merge-commit
+		System.out.println("DemoApplication is running"); // For the Issue 20-merge-commit test
 	}
 
 	private List<Task> tasks = new ArrayList<>();
