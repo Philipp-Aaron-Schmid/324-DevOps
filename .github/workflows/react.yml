@@ -23,15 +23,19 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: frontend
 
     - name: Run tests
       run: npm test -- --watchAll=false
+      working-directory: frontend
 
     - name: Build
       run: npm run build
+      working-directory: frontend
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: build-artifacts
-        path: build/
+        path: frontend/build/
+
