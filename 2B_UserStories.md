@@ -29,7 +29,7 @@
 
 ## Design 
 
-**Wer:** ProduktOwner  
+**Wer:** Marketing 
 **Was:** Logo anzeigen  
 **Warum:** Das Produkt soll eine Klare Marke Darstellen  
 
@@ -40,17 +40,6 @@
 | 3. Das logo ist nicht Kopierbar |
 | 4. Das logo entspircht Design standarts|
 
-## EasyStartup
-
-**Wer:** User  
-**Was:** Applikation mit einem klock starten  
-**Warum:** Der user will sich nicht mit einzelnen komponenten auskennen  
-
-| Akzeptanzkriterien |  
-| :--- |  
-| 1. Die applikation started über eine aktion |
-| 2. Das Terminal muss nicht geöffnet werden| 
----
 
 ## Error handling
 
