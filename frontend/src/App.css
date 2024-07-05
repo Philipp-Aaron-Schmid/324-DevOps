@@ -73,3 +73,9 @@ ul, ol {
   background-color: darkblue; /* Darken background color on hover */
 }
 
+.done {
+  color: rgb(185, 183, 183);
+  text-decoration: line-through;
+}
+
+
