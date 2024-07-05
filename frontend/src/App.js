@@ -83,6 +83,7 @@ class App extends React.Component {
       },
       body: JSON.stringify({ taskdescription: this.state.taskdescription }) // both 'taskdescription' are identical to Task-Class attribute in Spring
     })
+    .then(response => response.json())
     .then(response => {
       console.log("Receiving answer after sending to Spring-Server: ");
       console.log(response);
