@@ -44,9 +44,9 @@ jobs:
         fail-on-error: true
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: build-artifacts
+        name: build-artifact-backend
         path: backend/target/*.jar
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
