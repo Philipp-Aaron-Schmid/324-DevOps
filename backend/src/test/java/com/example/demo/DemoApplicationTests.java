@@ -76,8 +76,6 @@ class DemoApplicationTests {
     public void test_file_exists_but_is_empty() {
         // Setup
         DemoApplication app = new DemoApplication();
-        String newTaskJson = "{\"taskdescription\":\"New Task\"}";
-        app.addTask(newTaskJson);
         app.saveTasks();
 
         // Clear the file content to simulate an empty file
