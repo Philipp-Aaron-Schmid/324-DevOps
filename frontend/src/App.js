@@ -31,6 +31,7 @@ class App extends React.Component {
       },
       body: JSON.stringify({ taskdescription: this.state.taskdescription })
     })
+    .then(response => response.json())
     .then(response => {
       this.setState({
         todos: [...this.state.todos, {taskdescription: this.state.taskdescription, done: false}],
