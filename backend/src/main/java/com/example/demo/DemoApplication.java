@@ -43,9 +43,9 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	private List<Task> tasks = new ArrayList<>();
-	private final ObjectMapper mapper = new ObjectMapper();
-    private final String filePath = "tasks.json";
+	public List<Task> tasks = new ArrayList<>();
+	public final ObjectMapper mapper = new ObjectMapper();
+    public final String filePath = "tasks.json";
 
 	public DemoApplication() {
         loadTasks();
@@ -110,7 +110,7 @@ public class DemoApplication {
         }
         return "redirect:/";
     }
-	private void saveTasks() {
+	public void saveTasks() {
         try {
             mapper.writeValue(new File(filePath), tasks);
         } catch (IOException e) {
@@ -118,7 +118,7 @@ public class DemoApplication {
         }
     }
 
-    private void loadTasks() {
+    public void loadTasks() {
         try {
             if (Files.exists(Paths.get(filePath))) {
                 CollectionType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Task.class);
