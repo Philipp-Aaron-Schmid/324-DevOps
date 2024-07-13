@@ -40,7 +40,7 @@
 | 3. Das logo ist nicht Kopierbar |
 | 4. Das logo entspircht Design standarts|
 
-![Design](./pictures/Base.png)
+![Design](../pictures/Base.png)
 
 ## Error handling
 
@@ -128,7 +128,7 @@
 | 3. Es gibt einen "Speichern"-Button, um die Änderungen zu speichern. |
 | 4. Nach dem Speichern wird die aktualisierte Aufgabe in der Liste angezeigt. |
 
-![editing](./pictures/editing.png)
+![editing](../pictures/editing.png)
 
 ---
 ## Check and Keep
@@ -143,7 +143,6 @@
 | 2. Nach dem Markieren wird die Aufgabe als durchgestrichen oder anders visuell hervorgehoben dargestellt. |
 | 3. Erledigte Aufgaben bleiben in der Liste sichtbar, aber eindeutig als erledigt gekennzeichnet. |
 
-![editing](./pictures/donne.png)
 
 ---
 ## Validierung
