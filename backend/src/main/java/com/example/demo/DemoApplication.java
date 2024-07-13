@@ -46,6 +46,7 @@ public class DemoApplication {
 	public List<Task> tasks = new ArrayList<>();
 	public final ObjectMapper mapper = new ObjectMapper();
     public final String filePath = "tasks.json";
+    
 
 	public DemoApplication() {
         loadTasks();
@@ -110,6 +111,35 @@ public class DemoApplication {
         }
         return "redirect:/";
     }
+
+    @CrossOrigin
+	@GetMapping("/edit")
+	public String editTask(@RequestBody String taskJson) {
+		System.out.println("API EP '/edit': '" + taskJson + "'");
+		try {
+			Task updatedTask = mapper.readValue(taskJson, Task.class);
+			for (Task task : tasks) {
+				if (task.getTaskdescription().equals(updatedTask.getTaskdescription())) {
+					task.setTaskdescription(updatedTask.getTaskdescription());
+					System.out.println("...updating task: '" + updatedTask.getTaskdescription() + "'");
+					saveTasks();
+					return "redirect:/";
+				}
+			}
+			System.out.println(">>>task: '" + updatedTask.getTaskdescription() + "' not found!");
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/";
+	}
+
+    @CrossOrigin
+	@GetMapping("/history")
+	public List<Task> getTaskHistory() {
+		System.out.println("API EP '/history' returns task-list of size " + tasks.size() + ".");
+		return tasks;
+	}
+
 	public void saveTasks() {
         try {
             mapper.writeValue(new File(filePath), tasks);

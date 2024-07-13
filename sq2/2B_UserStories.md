@@ -29,7 +29,7 @@
 
 ## Design 
 
-**Wer:** ProduktOwner  
+**Wer:** Marketing 
 **Was:** Logo anzeigen  
 **Warum:** Das Produkt soll eine Klare Marke Darstellen  
 
@@ -40,17 +40,7 @@
 | 3. Das logo ist nicht Kopierbar |
 | 4. Das logo entspircht Design standarts|
 
-## EasyStartup
-
-**Wer:** User  
-**Was:** Applikation mit einem klock starten  
-**Warum:** Der user will sich nicht mit einzelnen komponenten auskennen  
-
-| Akzeptanzkriterien |  
-| :--- |  
-| 1. Die applikation started über eine aktion |
-| 2. Das Terminal muss nicht geöffnet werden| 
----
+![Design](../pictures/Base.png)
 
 ## Error handling
 
@@ -138,8 +128,10 @@
 | 3. Es gibt einen "Speichern"-Button, um die Änderungen zu speichern. |
 | 4. Nach dem Speichern wird die aktualisierte Aufgabe in der Liste angezeigt. |
 
+![editing](../pictures/editing.png)
+
 ---
-## Chek and Keep
+## Check and Keep
 
 **Wer:** Als Benutzer  
 **Was:** Möchte ich eine Aufgabe als erledigt abstempeln können,  
@@ -150,6 +142,7 @@
 | 1. Jede Aufgabe hat eine Checkbox zum Markieren als erledigt. |
 | 2. Nach dem Markieren wird die Aufgabe als durchgestrichen oder anders visuell hervorgehoben dargestellt. |
 | 3. Erledigte Aufgaben bleiben in der Liste sichtbar, aber eindeutig als erledigt gekennzeichnet. |
+
 
 ---
 ## Validierung
