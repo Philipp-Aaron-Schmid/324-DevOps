@@ -1,0 +1,27 @@
+ARG JAVA_VERSION=17.0.8
+ARG JAVA_TARGET_VERSION=17.0.8
+ARG JAVA=hotspot
+ARG TOMCAT_VERSION=9
+
+FROM maven:3-jdk-${JAVA_VERSION} AS dependencies
+
+WORKDIR /app
+
+COPY src/ /app/
+RUN ls
+RUN pwd
+
+RUN mvn dependency:go-offline package -B
+
+
+FROM dependencies AS build
+
+COPY ./ /app/
+RUN mvn --batch-mode release:prepare
+
+FROM tomcat:${TOMCAT_VERSION}-jdk${JAVA_VERSION}-adoptopenjdk-${JVM}
+
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
+
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
