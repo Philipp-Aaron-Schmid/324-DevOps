@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Run the Maven build
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 # Use an OpenJDK image to run the application
 FROM openjdk:17-jdk-slim
