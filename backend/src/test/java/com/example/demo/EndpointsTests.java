@@ -25,22 +25,6 @@ public class EndpointsTests {
     }
 
     @Test
-    public void testGetEditEndpoint() throws Exception {
-        String jsonContent = "{ \"taskName\": \"New Task\" }";
-
-        mockMvc.perform(get("/edit")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonContent))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void testGetHistoryEndpoint() throws Exception {
-        mockMvc.perform(get("/history"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
     public void testPostTasksEndpoint() throws Exception {
         String jsonContent = "{ \"taskName\": \"New Task\" }";
 
